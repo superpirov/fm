@@ -496,14 +496,18 @@ function renderWizard(){
   $app.querySelector('[data-nav="start"]')?.addEventListener('click', ()=>{
     let clubName='';
     if(S.mode==='standard'){
-      if(!S.selectedClub) return toast('Выбери клуб');
+      if(!S.selectedClub){
+        const clubs = clubListFor(S.selectedCountry, S.selectedLeague);
+        S.selectedClub = clubs[0];
+      }
       clubName=S.selectedClub;
     } else {
       if(!S.createClub.name || S.createClub.name.length<3) return toast('Придумай название клуба (мин. 3 символа)');
       if(S.createClub.budgetLeft<0) return toast('Превышен бюджет 2M $ — уменьши стадион');
       clubName=S.createClub.name;
     }
-    // create club object
+    if(!S.selectedCountry) S.selectedCountry = COUNTRIES[0];
+    if(!S.selectedLeague) S.selectedLeague = S.selectedCountry.leagues[0];
     S.club = {
       name: clubName,
       country: S.selectedCountry.name,
