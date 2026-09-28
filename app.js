@@ -515,7 +515,7 @@ function renderWizard(){
       budget: S.mode==='create'? S.createClub.budgetLeft : 5000000 + Math.floor(Math.random()*6000000)
     };
     S.squad = genSquad();
-    S.table = genTable(S.selectedLeague, S.club);
+    S.table = genTable(S.selectedLeague, S.club, S.selectedCountry);
     S.finances.balance = S.club.budget;
     S.news = genInitialNews();
     S.calendarEvents = genCalendarEvents();
