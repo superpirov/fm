@@ -33,11 +33,28 @@ const COUNTRIES = [
   {code:'SWE', name:'Швеция', leagues:['Allsvenskan','Superettan']},
 ];
 
-const CLUB_TEMPLATES = [
-  ['Манчестер Сити','Арсенал','Ливерпуль','Челси','Тоттенхэм','Ньюкасл','Астон Вилла','Брайтон','Вест Хэм','Кристал Пэлас'],
-  ['Реал Мадрид','Барселона','Атлетико','Севилья','Вильярреал','Валенсия','Бетис','Сосьедад','Атлетик','Жирона'],
-  ['Бавария','Боруссия Д','Байер','Лейпциг','Штутгарт','Айнтрахт','Вольфсбург','Вердер','Фрайбург','Хоффенхайм'],
-];
+const CLUB_NAMES_BY_COUNTRY = {
+  ENG: ['Арсенал','Челси','Ливерпуль','Манчестер Сити','Тоттенхэм','Ньюкасл','Астон Вилла','Брайтон','Вест Хэм','Эвертон','Фулхэм','Кристал Пэлас'],
+  ESP: ['Реал Мадрид','Барселона','Атлетико','Севилья','Вильярреал','Валенсия','Бетис','Сосьедад','Атлетик','Жирона','Сельта','Малага'],
+  GER: ['Бавария','Боруссия Д','Байер','Лейпциг','Штутгарт','Айнтрахт','Вольфсбург','Вердер','Фрайбург','Хоффенхайм','Унион','Гладбах'],
+  ITA: ['Интер','Милан','Ювентус','Наполи','Рома','Лацио','Аталанта','Фиорентина','Торино','Болонья','Сампдория','Удинезе'],
+  FRA: ['ПСЖ','Марсель','Монако','Лилль','Лион','Ницца','Ренн','Ланс','Страсбур','Нант','Реймс','Тулуза'],
+  POR: ['Бенфика','Порту','Спортинг','Брага','Витория','Маритимо','Боависта','Фамаликао','Эшторил','Ароука','Тондела','Эstoril'],
+  NED: ['Аякс','ПСВ','Фейеноорд','АЗ','Твенте','Утрехт','Витесс','Херенвен','Гронинген','Зволле','Неймеген','Утрехт'],
+  TUR: ['Галатасарай','Фенербахче','Бешикташ','Трабзонспор','Башакшехир','Аланьяспор','Ризеспор','Сивасспор','Антальяспор','Газиантеп','Коньяспор','Истанбулспор'],
+  BRA: ['Фламенго','Палмейрас','Сан-Паулу','Сантос','Коринтианс','Гремио','Атлетику Минайро','Ботафого','Васко','Флуминенсе','Байя','Атлетику Паранаенсе'],
+  ARG: ['Бока Хуниорс','Ривер Плейт','Индепендьенте','Расинг','Ланус','Архентинос','Тальерес','Банфилд','Колон','Уракан','Эстудьянтес','Химнасия'],
+  USA: ['Интер Майами','Лос-Анджелес Гэлакси','Сиэтл Саундерс','Атланта Юнайтед','Чикаго Файр','Нью-Йорк Сити','Портленд Тимберс','Филадельфия Юнион','Даллас','Сан-Хосе','Орландо Сити','Нэшвилл'],
+  JPN: ['Виссел Кобе','Урава Редс','Иокогама Маринос','Кавасаки Фронтале','Сересо Осака','Санфречче Хиросима','Фукуока','Нагоя','Саппоро','Касима','Виссел','Шонан'],
+  KOR: ['Ульсан','Пхохан','Чонбук','Сеул','Инчон','Дэгу','Гwangju','Сувон','Джеджу','Пусан','Гангвон','Тэджон'],
+  MEX: ['Америка','Гвадалахара','Монтеррей','Крус Асуль','Толука','Леон','Пумас','Тихуана','Сантос','Некса','Атлас','Керетаро'],
+  RUS: ['Зенит','Спартак','ЦСКА','Динамо','Краснодар','Локомотив','Ростов','Ахмат','Оренбург','Пари Нижний Новгород','Урал','Факел'],
+  UKR: ['Динамо Киев','Шахтёр','Днепр','Заря','Ворскла','Олександрия','Колос','Рух','Металлист','Ингулець','Чорноморець','Верес'],
+  POL: ['Легия','Лех','Варта','Гурник','Ягеллония','Погоń','Заглембе','Висла','Сталь','Корона','ГКТ','Мьедзь'],
+  BEL: ['Андерлехт','Брюгге','Сент-Трюйден','Генк','Гент','Стандар','Серен','Остенде','Вестерло','Локерен','Шарлеруа','Мехелен'],
+  SCO: ['Селтик','Рейнджерс','Абердин','Хиберниан','Харт','Данди Юнайтед','Мотеруел','Сент-Джонстон','Ливингстон','Росс','Килмарнок','Сент-Миррен'],
+  SWE: ['Мальмё','АИК','Хаммарбю','Юргорден','Эльфсборг','Кальмар','Норрчёпинг','Хеккен','Сириус','Варна','Дегерфорс','Броммапойкарна'],
+};
 
 const FIRST_NAMES = ['Лука','Марк','Алекс','Даниил','Иван','Михаил','Лео','Килиан','Эрлинг','Джамал','Педри','Гави','Букайо','Фил','Деклан','Родри','Винисиус','Джуд','Хвича','Рафаэл'];
 const LAST_NAMES  = ['Силва','Мюллер','Гарсия','Смит','Ковач','Петров','Иванов','Фернандеш','Сака','Фоден','Муса','Беллингем','Холанд','Мбаппе','Вини','Родриго','Салиба','Райс','Эдегор','Кейн'];
@@ -113,19 +130,31 @@ function genSquad(){
   const y17 = Array.from({length:14}, ()=> genPlayer('y17'));
   return {first, reserve, y10, y14, y17};
 }
-function genTable(leagueName, myClub){
+function genTable(leagueName, myClub, country){
   const clubs = [];
-  // generate 12 clubs for table
-  const baseNames = ['Сити','Юнайтед','Арсенал','Челси','Ливер','Тоттенхэм','Атлетико','Реал','Барса','Бавария','Интер','Милан','ПСЖ','Марсель','Аякс','Порту','Бенфика','Спортинг'];
+  const names = clubListFor(country || COUNTRIES[0], leagueName);
   for(let i=0;i<12;i++){
-    const name = i===5 ? myClub.name : baseNames[(i*3)%baseNames.length]+' '+(i+1);
+    const name = names[i];
     clubs.push({name, pld: 0, w:0,d:0,l:0,gf:0,ga:0,pts:0, form: genLevelForTable()});
   }
-  // simulate some rounds
-  for(let r=0;r<8;r++){
-    for(let i=0;i<clubs.length;i+=2){
-      const a=clubs[i], b=clubs[i+1];
-      if(!a||!b) continue;
+  // proper round-robin: each team plays each other once (11 rounds for 12 teams)
+  const n = clubs.length;
+  const rounds = [];
+  for(let r=0;r<n-1;r++){
+    const round = [];
+    for(let i=0;i<n/2;i++){
+      const a = clubs[i];
+      const b = clubs[n-1-i];
+      round.push([a,b]);
+    }
+    rounds.push(round);
+    // rotate all except first
+    const last = clubs.pop();
+    clubs.splice(1, 0, last);
+  }
+  // simulate first 8 rounds
+  for(let r=0;r<Math.min(8, rounds.length);r++){
+    for(const [a,b] of rounds[r]){
       const res = simScore(a.form,b.form);
       a.gf+=res.a; b.gf+=res.b; a.ga+=res.b; b.ga+=res.a;
       a.pld++; b.pld++;
@@ -178,7 +207,7 @@ let S = load() || cloneState(defaultState);
 if(S.gameDate) S.gameDate = new Date(S.gameDate);
 if(S.nextMatch && S.nextMatch.date) S.nextMatch.date = new Date(S.nextMatch.date);
 if(!S.squad && S.club) S.squad = genSquad();
-if(S.club && !S.table) S.table = genTable(S.selectedLeague, S.club);
+if(S.club && !S.table) S.table = genTable(S.selectedLeague, S.club, S.selectedCountry);
 
 function save(){
   localStorage.setItem('fm_elite_save', JSON.stringify(S));
@@ -500,12 +529,11 @@ function renderWizard(){
 }
 
 function clubListFor(country, league){
-  // deterministic pseudo list per league
-  const idx = COUNTRIES.findIndex(c=>c.code===country.code);
-  const seed = (idx*7 + (league.length*3))%3;
-  const base = CLUB_TEMPLATES[seed % CLUB_TEMPLATES.length];
-  // add country flavour
-  return base.map(n=> n + (country.code==='RUS'?'':'') );
+  const names = CLUB_NAMES_BY_COUNTRY[country.code] || ['ФК Аврора','ФК Вектор','ФК Горизонт','ФК Динамо','ФК Зенит','ФК Импульс','ФК Комета','ФК Легенда','ФК Меридиан','ФК Нова','ФК Орион','ФК Пульс'];
+  const leagueIdx = country.leagues.indexOf(league);
+  const start = (leagueIdx * 6) % names.length;
+  const rotated = [...names.slice(start), ...names.slice(0, start)];
+  return rotated.slice(0, 12);
 }
 
 function genInitialNews(){
@@ -693,7 +721,7 @@ function renderSquadView(view){
     const cur = S.youthTab;
     const curList = S.squad[cur];
     return `
-    <div class="section-head"><div><h3>${title||'Юношеская команда'}</h3><div class="small muted">Академия • таланты растут со временем</div></div><div class="row">${tabs.map(t=> `<button class="btn ${cur===t.id?'':'btn-ghost'} btn-sm" data-youth="${t.id}">${t.label}</button>`).join('')}</div></div>
+    <div class="section-head"><div><h3>Юношеская команда</h3><div class="small muted">Академия • таланты растут со временем</div></div><div class="row">${tabs.map(t=> `<button class="btn ${cur===t.id?'':'btn-ghost'} btn-sm" data-youth="${t.id}">${t.label}</button>`).join('')}</div></div>
     <div class="squad-layout">
       <div class="card" style="padding:12px">
         <div class="kicker" style="margin-bottom:8px">${tabs.find(t=>t.id===cur).label} — ${curList.length} игроков</div>
@@ -954,6 +982,7 @@ function renderRight(){
   // dynamic right panel based on view
   if(S.view==='first' || S.view==='reserve' || S.view==='youth'){
     const topTalent = [...S.squad.first].sort((a,b)=> b.talent-a.talent).slice(0,3);
+    const squadList = S.view==='youth' ? S.squad[S.youthTab] : S.squad.first;
     return `
     <div class="card" style="padding:14px">
       <div class="kicker">Скаут-отчёт</div>
@@ -999,7 +1028,7 @@ function bindGameEvents(){
   $app.querySelectorAll('[data-view-go]').forEach(b=> b.addEventListener('click', ()=>{ S.view=b.dataset.viewGo; save(); render(); }));
   $app.querySelector('[data-act="nextDay"]')?.addEventListener('click', nextDay);
   $app.querySelector('[data-act="prevDay"]')?.addEventListener('click', prevDay);
-  $app.querySelector('[data-act="save"]')?.addEventListener('click', ()=>{ save(); toast('Сохранено'); });
+  $app.querySelectorAll('[data-act="save"]').forEach(b=> b.addEventListener('click', ()=>{ save(); toast('Сохранено'); }));
   $app.querySelector('[data-act="reset"]')?.addEventListener('click', ()=>{ localStorage.removeItem('fm_elite_save'); location.reload(); });
   $app.querySelector('[data-act="simMatch"]')?.addEventListener('click', simMatch);
   $app.querySelectorAll('[data-day]').forEach(el=> el.addEventListener('click', ()=>{
@@ -1073,9 +1102,23 @@ function nextDay(){
   const key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
   const ev=S.calendarEvents[key];
   if(ev?.type==='match'){
-    // auto sim world tables slightly
-    S.table.forEach(c=>{ if(Math.random()<0.5){ c.pld++; c.gf+=Math.floor(Math.random()*3); c.ga+=Math.floor(Math.random()*3); if(Math.random()<0.45){c.w++;c.pts+=3} else if(Math.random()<0.6){c.d++;c.pts+=1}else{c.l++}}});
-    S.table.sort((a,b)=> b.pts-a.pts);
+    // proper round-robin simulation: each team plays one match per round
+    const n = S.table.length;
+    const round = [];
+    for(let i=0;i<n/2;i++){
+      const a = S.table[i];
+      const b = S.table[n-1-i];
+      round.push([a,b]);
+    }
+    for(const [a,b] of round){
+      const res = simScore(a.form,b.form);
+      a.gf+=res.a; b.gf+=res.b; a.ga+=res.b; b.ga+=res.a;
+      a.pld++; b.pld++;
+      if(res.a>res.b){a.w++;a.pts+=3;b.l++}
+      else if(res.b>res.a){b.w++;b.pts+=3;a.l++}
+      else {a.d++;b.d++;a.pts++;b.pts++}
+    }
+    S.table.sort((a,b)=> b.pts-a.pts || (b.gf-b.ga)-(a.gf-a.ga));
     S.news.unshift({id: Date.now(), title:`Матч-день: ${S.club.name} — ${ev.opponent}`, text:'Силовой прессинг и стандарты решат исход. Выбери тактику и роли.', time:'Сегодня '+d.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'}), img:'https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=200&auto=format&fit=crop'});
   } else {
     // small training progress for youths
@@ -1105,9 +1148,24 @@ function simMatch(){
   const res = simScore(myForm, oppForm);
   const win = res.a>res.b ? 'Победа' : res.a===res.b ? 'Ничья' : 'Поражение';
   const color = win==='Победа'?'var(--accent)': win==='Ничья'?'var(--gold)':'var(--red)';
-  // update table
+  // update table - proper round: my team + opponent + 5 other matches
   const me = S.table.find(c=> c.name===S.club.name);
-  if(me){ me.pld++; me.gf+=res.a; me.ga+=res.b; if(res.a>res.b){me.w++;me.pts+=3} else if(res.a===res.b){me.d++;me.pts+=1}else{me.l++} S.table.sort((a,b)=> b.pts-a.pts || (b.gf-b.ga)-(a.gf-a.ga));}
+  const opp = S.table.find(c=> c.name===S.nextMatch.opponent);
+  if(me){ me.pld++; me.gf+=res.a; me.ga+=res.b; if(res.a>res.b){me.w++;me.pts+=3} else if(res.a===res.b){me.d++;me.pts+=1}else{me.l++} }
+  if(opp){ opp.pld++; opp.gf+=res.b; opp.ga+=res.a; if(res.b>res.a){opp.w++;opp.pts+=3} else if(res.a===res.b){opp.d++;opp.pts+=1}else{opp.l++} }
+  // simulate other 5 matches in the round
+  const others = S.table.filter(c=> c!==me && c!==opp);
+  for(let i=0;i<others.length;i+=2){
+    if(!others[i+1]) continue;
+    const a=others[i], b=others[i+1];
+    const r2 = simScore(a.form,b.form);
+    a.gf+=r2.a; b.gf+=r2.b; a.ga+=r2.b; b.ga+=r2.a;
+    a.pld++; b.pld++;
+    if(r2.a>r2.b){a.w++;a.pts+=3;b.l++}
+    else if(r2.b>r2.a){b.w++;b.pts+=3;a.l++}
+    else {a.d++;b.d++;a.pts++;b.pts++}
+  }
+  S.table.sort((a,b)=> b.pts-a.pts || (b.gf-b.ga)-(a.gf-a.ga));
   S.news.unshift({id: Date.now(), title:`${win} ${res.a}:${res.b} vs ${S.nextMatch.opponent}`, text:`Твоя схема ${S.formation} • ${S.tactic} • Средний уровень ${myForm} против ${oppForm}.`, time:'Только что', img:'https://images.unsplash.com/photo-1574629810360-214f3774381b?q=80&w=200&auto=format&fit=crop'});
   // next opponent
   S.nextMatch.opponent = clubListFor(S.selectedCountry, S.selectedLeague).filter(n=> n!==S.club.name)[Math.floor(Math.random()*5)];
